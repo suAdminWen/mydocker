@@ -104,7 +104,7 @@ docker search : 从Docker Hub查找镜像
 
 docker images : 列出本地镜像
 
-docker images [OPTIONS] [REPOSITORY[:TAG]]
+    docker images [OPTIONS] [REPOSITORY[:TAG]]
 
 OPTIONS说明：
 
@@ -114,7 +114,7 @@ OPTIONS说明：
 
 docker rmi : 删除本地一个或多少镜像
 
-docker rmi [OPTIONS] IMAGE [IMAGE...]
+    docker rmi [OPTIONS] IMAGE [IMAGE...]
 
 OPTIONS说明：
 
