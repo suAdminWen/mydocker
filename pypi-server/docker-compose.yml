@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    pypi_server:
+        container_name: pypi_server_container 
+        image: pypi_server:latest
+        ports:
+            - 31415:31415
+        volumes:
+            - /etc/localtime:/etc/localtime
