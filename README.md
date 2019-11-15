@@ -1,3 +1,18 @@
+# 常见错误：
+ 
+## docker login 出错：
+
+登陆到一个Docker镜像仓库
+
+```
+Error saving credentials: error storing credentials - err: exit status 1, out: `Error calling StartServiceByName for org.freedesktop.secrets: Timeout was reached`  
+``` 
+安装以下依赖：
+
+```
+sudo apt install gnupg2 pass
+```
+
 # Docker常用命令大全
 
 ## 分类
