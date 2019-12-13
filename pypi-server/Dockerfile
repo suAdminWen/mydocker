@@ -1,4 +1,4 @@
-FROM suadminwen/python3-ubuntu
+FROM suadminwen/python3-ubuntu:latest
 
 WORKDIR /root/
 
