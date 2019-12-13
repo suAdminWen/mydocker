@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 ENV LANG C.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
 	&& apt-get clean \
