@@ -1,18 +1,20 @@
-FROM alpine
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main/" > /etc/apk/repositories 
-RUN apk update --no-cache \
-    && apk add --no-cache python3 \
-    && cd /usr/bin \
-    && ln -sf pip3 pip \
-    && mkdir -p /root/.pip \
-	&& echo -e '[global]\nindex_url = https://pypi.doubanio.com/simple' > /root/.pip/pip.conf \
-    && pip install --upgrade --no-cache-dir pip
+FROM suadminwen/python3-ubuntu
 
-WORKDIR ~
+WORKDIR /root/
 
-RUN apk add supervisor \
-	&& pip install pypiserver
+COPY ./.pypipassword ./
+COPY ./pypi_supervisord.conf ./
+
+RUN apt-get install -y apache2-utils \
+	&& apt-get install -y supervisor
+
+RUN pip install pypiserver passlib
+
+RUN mv pypi_supervisord.conf /etc/supervisor/conf.d \
+	&& mkdir -p /root/packages \
+	&& mkdir -p /var/log/supervisor \
+	&& touch /var/log/supervisor/pypi.log
     
 EXPOSE 31415
  
-ENTRYPOINT ["pypi-server -p 31415"]
+ENTRYPOINT ["/usr/bin/supervisord"]
