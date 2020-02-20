@@ -3,13 +3,17 @@ pypiserver 等只支持两个索引： 私有的索引和公有的索引。 在�
 - 创建用户
 
 ```
+# 安装客户端
+pip install -U devpi-client
+# 创建连接
+devpi use http://localhost:31415
 # 创建用户
 devpi user -c devuser password=
 # 用户登录
 devpi login devuser --password=
 
 # 创建索引
-devpi index -c dev
+devpi index -c dev bases=root/pypi
 # 使用索引
 devpi use devuser/dev
 
