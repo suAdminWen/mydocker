@@ -37,3 +37,7 @@ trusted-host = devpi.example.com
 - pip
 
 `pip install -i http://devpi.example.com/devuser/dev/+simple/ [package]`
+
+需要认证时：
+
+`pip install -i http://[user]:[password]@[host]/devuser/dev/+simple/ [package] --trusted-host [host]`

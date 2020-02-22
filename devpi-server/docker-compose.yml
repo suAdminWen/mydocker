@@ -6,4 +6,5 @@ services:
     build:
       context: .
     ports:
-      - 31415:31415
+      - 3141:3141
+      - 80:80
