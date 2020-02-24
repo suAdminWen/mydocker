@@ -15,7 +15,7 @@ RUN apt update \
 COPY ./nginx-devpi.conf /etc/nginx/sites-enabled/default
 COPY ./run.sh /root/
 
-EXPOSE 3141
+EXPOSE 31415
 EXPOSE 80
  
 ENTRYPOINT ["bash", "run.sh"]
